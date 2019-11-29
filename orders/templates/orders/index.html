@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "orders/base.html" %}
+
+{% block title %}
+    Pinocchio's
+{% endblock %}
+
+{% block body %}
+    <h1>Menu</h1>
+    <h2>Pizzas</h2>
+    <ul>
+        {% for pizza in pizzas %}
+            <li>
+                {{ pizza }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Toppings</h2>
+    <ul>
+        {% for topping in toppings %}
+            <li>
+                {{ topping }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
