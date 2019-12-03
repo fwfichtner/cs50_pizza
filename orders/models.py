@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 
@@ -38,3 +39,17 @@ class Toppings(models.Model):
 
     def __str__(self):
         return f"{self.topping}"
+
+
+class UserOrder(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)  # https://stackoverflow.com/a/6929224
+    numberToppings = models.ForeignKey(Size, on_delete=models.CASCADE)
+    # TODO handling big/small, only needed to calculate the price
+
+
+class PizzaToppings(models.Model):
+    # https://docs.djangoproject.com/en/2.2/topics/db/examples/many_to_one/
+    order = models.ForeignKey(UserOrder, on_delete=models.CASCADE)
+    usedTopping = models.ForeignKey(Toppings, on_delete=models.CASCADE)
+

@@ -22,4 +22,15 @@
             </li>
         {% endfor %}
     </ul>
+    <h2>Order</h2>
+    <form action="{% url 'order'}" method="post">
+        {% csrf_token %}
+        <select name="pizza">
+            {% for pizza in pizzas %}
+            <option value="{{ pizza.id }}">{{ pizza }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add Pizza" />
+        </select>
+    </form>
 {% endblock %}
