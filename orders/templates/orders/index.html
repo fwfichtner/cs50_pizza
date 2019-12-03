@@ -1,0 +1,25 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+    Pinocchio's
+{% endblock %}
+
+{% block body %}
+    <h1>Menu</h1>
+    <h2>Pizzas</h2>
+    <ul>
+        {% for pizza in pizzas %}
+            <li>
+                {{ pizza }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Toppings</h2>
+    <ul>
+        {% for topping in toppings %}
+            <li>
+                {{ topping }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

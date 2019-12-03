@@ -1,0 +1,15 @@
+{% load static %}
+
+<!DOCTYPE html> // https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000553810-Unexpected-tokens-in-DOCTYPE-html- ?? TODO
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'orders/styles.css' %}"/>
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
+{% load static %}
