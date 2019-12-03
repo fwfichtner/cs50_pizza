@@ -23,8 +23,14 @@ class Pizza(models.Model):
     large = models.DecimalField(max_digits=4, decimal_places=2)  # price in $
 
     def __str__(self):
-        topping = f"Cheese" if f"{self.size}" == "0" else f"{self.size} toppings"  # TODO there must be a better way
-        return f"{self.category} : {topping} - small: {self.small} $ // large: {self.large} $"
+        return f"{self.category} : {self.formatTopping()} - small: {self.small} $ // large: {self.large} $"
+
+    def formatTopping(self):
+        # TODO there must be a better way than this, also nesting sucks
+        topping = f"Cheese" if f"{self.size}" == "0" else f"{self.size} toppings"
+        topping = f"1 topping" if f"{self.size}" == "1" else topping
+        topping = f"Special" if f"{self.size}" == "5" else topping
+        return topping
 
 
 class Toppings(models.Model):
