@@ -12,3 +12,6 @@ def index(request):
     }
     return render(request, "orders/index.html", context)
 
+
+def order(request):
+    return HttpResponse("Project 3: TODO")
