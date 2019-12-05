@@ -3,5 +3,20 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+
 /orders/migrations
 /orders/creds.txt
+
+/login/migrations
+/login/creds.txt
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.env
+db.sqlite3
