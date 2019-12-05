@@ -8,8 +8,8 @@ __pycache__/
 /orders/migrations
 /orders/creds.txt
 
-/login/migrations
-/login/creds.txt
+/register/migrations
+/register/creds.txt
 
 ### Django ###
 *.log

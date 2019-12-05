@@ -1,4 +1,5 @@
 {% extends "orders/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     Pinocchio's
@@ -24,7 +25,11 @@
     </ul>
     <h2>Order</h2>
     <form action="{% url 'order'}" method="post">
+        {% if request.user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p>You are currently logged in! Please go ahead and order your pizza!</p>
         {% csrf_token %}
+        {{ form|crispy }}
         <select name="pizza">
             {% for pizza in pizzas %}
             <option value="{{ pizza.id }}">{{ pizza }}</option>
@@ -32,5 +37,10 @@
             </select>
             <input type="submit" value="Add Pizza" />
         </select>
+
+      <p><a href="{% url 'logout' %}">logout</a></p>
+      {% else %}
+      <p>You are currently not logged in! Click <a href="/login">here</a></p>
+      {% endif %}
     </form>
 {% endblock %}
