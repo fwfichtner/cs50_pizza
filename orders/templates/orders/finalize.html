@@ -5,15 +5,17 @@
 {% endblock %}
 
 {% block body %}
-<h1>Shopping cart of {{userorder.user}}</h1>
-
-    <h2>Toppings</h2>
-    <ul>
-        {% for topping in toppings %}
-            <li>
-                {{ topping }}
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Shopping cart of {{userorder.user}}</h1>
+        <h2>Which topping do you want to your {{userorder.pizza.category}}-pizza with a total of {{userorder.pizza.size}} toppings?</h2>
+        <h3>Add a Topping</h3>
+        <form action="{% url 'finalize' userorder.id %}" method="post">
+            {% csrf_token %}
+            <select name="topping">
+                {% for topping in toppings %}
+                    <option value="{{ topping.id }}">{{ topping }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add Topping" />
+        </form>
 {% endblock %}
 

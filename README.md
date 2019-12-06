@@ -12,3 +12,6 @@ More about [Project 3](https://docs.cs50.net/web/2019/x/projects/3/project3.html
 ## Usage
 Start application running `python manage.py runserver`
 
+## TODOs
+* make this look nicer
+* make possible to order multiple pizzas, delete orders, update views, etc.

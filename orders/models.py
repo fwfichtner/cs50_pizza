@@ -46,6 +46,10 @@ class UserOrder(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)  # https://stackoverflow.com/a/6929224
     numberToppings = models.ForeignKey(Size, on_delete=models.CASCADE)
     # TODO handling big/small, only needed to calculate the price
+    # TODO add a boolean for confirmation
+
+    def __str__(self):
+        return f"{self.user} wants to order {self.pizza}"
 
 
 class PizzaToppings(models.Model):
